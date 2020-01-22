@@ -22,6 +22,9 @@ const Article = (props) => {
 
   const user = article.author.username
 
+  let tags;
+  if (article.tagList.length > 0)
+    tags = article.tagList.reduce((acc, cur) => `${acc} #${cur}`, '')
 
   return (
     <article className="article">
@@ -31,7 +34,7 @@ const Article = (props) => {
         on {new Date(article.createdAt).toLocaleDateString()}
       </p>
       <p>{article.body}</p>
-
+      <p className="article-meta"> {tags} </p>
       <div className="row">
         <button>5 Comments</button>
       </div>

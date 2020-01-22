@@ -45,6 +45,12 @@ const TagModal = () => {
               </button>
             ))
           }
+          <button className='btn-small tag-btn btn-primary' onClick={() => {
+            updateTag('')
+            closeModal()
+          }}>
+            Clear
+          </button>
         </div>
       </div>
     </div>

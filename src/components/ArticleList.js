@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import ArticleCard from './ArticleCard'
 import { QueryContext } from './QueryContext'
 
@@ -22,18 +22,18 @@ const ArticleList = (props) => {
   }
 
   const incOffset = () => {
-    let newParams = {...params}
+    let newParams = { ...params }
     newParams.offset += 10
     setParams(newParams)
   }
 
   const decOffset = () => {
-    let newParams = {...params}
+    let newParams = { ...params }
     newParams.offset = Math.max(0, newParams.offset - 10)
     setParams(newParams)
   }
 
-  return(
+  return (
     <div>
       <h6 className='article-count'>
         {countMessage(params.offset, articles.length, articleCount)}
@@ -41,7 +41,7 @@ const ArticleList = (props) => {
       {
         articles.map((a, i) => (
           <ArticleCard title={a.title} author={a.author.username}
-            description={a.description} key={i} slug={a.slug}
+            description={a.description} key={i} slug={a.slug} tags={a.tagList}
             date={new Date(a.createdAt).toLocaleDateString()} />
         ))
       }
