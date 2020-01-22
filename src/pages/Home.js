@@ -1,8 +1,10 @@
 import React from 'react'
 import Splash from '../components/Splash'
 import ArticleList from '../components/ArticleList'
+import TagModal from '../components/TagModal'
+import { QueryProvider } from '../components/QueryContext'
 
-const Home = () => {
+const Home = (props) => {
 
   const content = (
     <p>
@@ -13,7 +15,10 @@ const Home = () => {
   return (
     <div>
       <Splash title='Paper Conduit' content={content}/>
-      <ArticleList />
+      <QueryProvider>
+        <TagModal />
+        <ArticleList />
+      </QueryProvider>
     </div>
   )
 }

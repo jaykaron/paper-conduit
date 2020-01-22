@@ -1,3 +1,10 @@
+nav {
+    z-index: 1;
+}
+.modal {
+    z-index: 2;
+}
+
 img.avatar {
     width:100px;
     height: 100px;
@@ -9,9 +16,34 @@ img.avatar {
 .card {
     max-width: 30rem;
     margin: auto;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 #user {
     max-width: 20rem;
+}
+
+a {
+    color: black;
+    background: none;
+}
+a:visited {
+    color: #6f6f6f;
+}
+
+.article-card-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.article-count {
+    text-align: center;
+    margin: 0px;
+}
+
+.tag-btn {
+    margin: 0.3rem;
 }

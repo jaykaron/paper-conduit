@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { fetchApi } from '../utils'
 import ArticleList from '../components/ArticleList'
+import { QueryProvider } from '../components/QueryContext'
 
 const Profile = (props) => {
 
@@ -20,6 +21,13 @@ const Profile = (props) => {
         )
 
     const bio = profile.bio ? profile.bio : `${profile.username} wishes to remain mysterious.`
+
+    const queryParams = {
+        author: profile.username,
+        limit: 5,
+        offset: 0
+    }
+
     return (
         <div>
             <div id='user' className="card" >
@@ -29,7 +37,9 @@ const Profile = (props) => {
                     <h5 className="card-subtitle">{bio}</h5>
                 </div>
             </div>
-            <ArticleList query='author=qqx71848&limit=5&offset=0' />
+            <QueryProvider queryParams={queryParams} >
+                <ArticleList />
+            </QueryProvider>
         </div>
     )
 }
