@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { fetchApi } from '../utils'
 import UserLink from '../components/UserLink'
+import FavoriteButton from '../components/FavoriteButton'
 
 
 const Article = (props) => {
@@ -38,7 +39,8 @@ const Article = (props) => {
       <p className="article-meta"> {tags} </p>
       <div className="article-card-buttons">
         <button>5 Comments</button>
-        <UserLink user={article.author}></UserLink>
+        <FavoriteButton count={article.favoritesCount} favorited={article.favorited} />
+        <UserLink user={article.author} />
       </div>
     </article>
   )

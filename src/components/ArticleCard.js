@@ -1,26 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import UserLink from './UserLink';
+import FavoriteButton from './FavoriteButton';
 
 const ArticleCard = props => {
+  const art = props.article;
 
-
-  let tags;
-  if (props.tags.length > 0)
-    tags = props.tags.reduce((acc, cur) => `${acc} #${cur}`, '')
+  let tagsText;
+  if (art.tagList.length > 0)
+    tagsText = art.tagList.reduce((acc, cur) => `${acc} #${cur}`, '')
 
   return (
     <div className='card'>
       <div className='card-body'>
-        <h4 className='card-title'>{props.title}</h4>
-        <h6 className='card-text'>{props.date}</h6>
-        <p className='card-text'>{props.description}</p>
-        <p className='card-text'><small>{tags}</small></p>
+        <h4 className='card-title'>{art.title}</h4>
+        <h6 className='card-text'>{new Date(art.createdAt).toLocaleDateString()}</h6>
+        <p className='card-text'>{art.description}</p>
+        <p className='card-text'><small>{tagsText}</small></p>
         <div className='article-card-buttons'>
-          <Link to={`/article/${props.slug}`} className='paper-btn'>
+          <Link to={`/article/${art.slug}`} className='paper-btn'>
             Read me!
           </Link>
-          <UserLink user={props.author}></UserLink>
+          <FavoriteButton count={art.favoritesCount} favorited={art.favorited} />
+          <UserLink user={art.author}></UserLink>
         </div>
       </div>
     </div>

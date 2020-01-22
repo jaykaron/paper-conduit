@@ -39,11 +39,7 @@ const ArticleList = (props) => {
         {countMessage(params.offset, articles.length, articleCount)}
       </h6>
       {
-        articles.map((a, i) => (
-          <ArticleCard title={a.title} author={a.author}
-            description={a.description} key={i} slug={a.slug} tags={a.tagList}
-            date={new Date(a.createdAt).toLocaleDateString()} />
-        ))
+        articles.map((a, i) => (<ArticleCard article={a} key={i} />))
       }
       {navButtons(params.offset, articles.length, articleCount)}
     </div>
