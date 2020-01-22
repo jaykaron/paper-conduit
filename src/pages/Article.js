@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { fetchApi } from '../utils'
+import UserLink from '../components/UserLink'
 
 
 const Article = (props) => {
@@ -35,8 +36,9 @@ const Article = (props) => {
       </p>
       <p>{article.body}</p>
       <p className="article-meta"> {tags} </p>
-      <div className="row">
+      <div className="article-card-buttons">
         <button>5 Comments</button>
+        <UserLink user={article.author}></UserLink>
       </div>
     </article>
   )

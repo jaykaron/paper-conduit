@@ -13,6 +13,19 @@ img.avatar {
     margin-top: 2rem;
 }
 
+.user-link {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+.user-link img {
+    width:20px;
+    height: 20px;
+    border-radius: 20px;
+    margin: auto;
+    margin-right: 8px;
+}
+
 .card {
     max-width: 30rem; 
     margin: auto;

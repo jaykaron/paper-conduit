@@ -40,7 +40,7 @@ const ArticleList = (props) => {
       </h6>
       {
         articles.map((a, i) => (
-          <ArticleCard title={a.title} author={a.author.username}
+          <ArticleCard title={a.title} author={a.author}
             description={a.description} key={i} slug={a.slug} tags={a.tagList}
             date={new Date(a.createdAt).toLocaleDateString()} />
         ))

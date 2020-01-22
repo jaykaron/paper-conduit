@@ -10,7 +10,6 @@ export const QueryProvider = (props) => {
 
   useEffect(() => {
     let query = createQuery(params)
-    console.log(query)
     fetchApi(`https://conduit.productionready.io/api/articles${query}`, d => {
       setArticles(d.articles)
       setCount(d.articlesCount)

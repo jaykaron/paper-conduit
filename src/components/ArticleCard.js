@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import UserLink from './UserLink';
 
 const ArticleCard = props => {
 
@@ -8,7 +9,6 @@ const ArticleCard = props => {
   if (props.tags.length > 0)
     tags = props.tags.reduce((acc, cur) => `${acc} #${cur}`, '')
 
-  console.log(tags)
   return (
     <div className='card'>
       <div className='card-body'>
@@ -19,10 +19,8 @@ const ArticleCard = props => {
         <div className='article-card-buttons'>
           <Link to={`/article/${props.slug}`} className='paper-btn'>
             Read me!
-                    </Link>
-          <Link to={`/user/${props.author}`} className='paper-btn'>
-            {props.author}
           </Link>
+          <UserLink user={props.author}></UserLink>
         </div>
       </div>
     </div>

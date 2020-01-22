@@ -15,7 +15,7 @@ const Profile = (props) => {
     })
   }, [props.match.params.user])
 
-  if (profile.username === undefined)
+  if (!profile || profile.username === undefined)
     return (
       <div></div>
     )
