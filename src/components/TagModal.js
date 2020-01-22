@@ -23,10 +23,11 @@ const TagModal = () => {
     setParams(newParams)
   }
 
+  const buttonText = params.tag ? `#${params.tag}` : 'Filter by Tag'
   return (
     <div>
       <div className="row flex-spaces child-borders">
-        <label className="paper-btn margin" htmlFor="tag-modal">Filter by Tag</label>
+        <label className="paper-btn margin" htmlFor="tag-modal">{buttonText}</label>
       </div>
       <input className="modal-state" id="tag-modal" type="checkbox" />
       <div className="modal">
@@ -41,7 +42,7 @@ const TagModal = () => {
                 updateTag(t)
                 closeModal()
               }}>
-                {t}
+                {`#${t}`}
               </button>
             ))
           }
