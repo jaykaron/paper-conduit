@@ -1,15 +1,25 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Nav from './components/Nav'
-import Splash from './components/Splash'
-import ArticleList from './components/ArticleList'
+import Home from './pages/Home'
+import About from './pages/About'
+import Article from './pages/Article'
+import Profile from './pages/Profile'
+import './css/main.css'
 
 function App() {
   return (
-    <div className="paper container">
-      <Nav />
-      <Splash />
-      <ArticleList />
-    </div>
+    <Router>
+      <div className="paper container">
+        <Nav />
+        <Switch>
+          <Route path='/' exact component={Home} />
+          <Route path='/about' exact component={About} />
+          <Route path='/article/:slug' component={Article} />
+          <Route path='/user/:user' component={Profile} />
+        </Switch>
+      </div>
+    </Router>
   )
 }
 

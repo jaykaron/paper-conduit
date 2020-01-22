@@ -1,11 +1,9 @@
 import React from 'react'
 
-const Splash = () => (
+const Splash = (props) => (
     <div>
-        <h1>Paper Conduit</h1>
-        <p>
-            A React app using the RealWorld API with a custom PaperCSS frontend.
-        </p>
+        <h1>{props.title}</h1>
+        {props.content}
     </div>
 )
 

@@ -1,24 +1,25 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const Nav = () => (
-  <nav class="border split-nav">
-    <div class="nav-brand">
-      <h4><a href="#">Paper Conduit</a></h4>
+  <nav className="border split-nav">
+    <div className="nav-brand">
+      <h4><Link to='/'>Paper Conduit</Link></h4>
     </div>
-    <div class="collapsible">
+    <div className="collapsible">
       <input id="collapsible1" type="checkbox" name="collapsible1"></input>
       <button>
-        <label for="collapsible1">
-          <div class="bar1"></div>
-          <div class="bar2"></div>
-          <div class="bar3"></div>
+        <label htmlFor="collapsible1">
+          <div className="bar1"></div>
+          <div className="bar2"></div>
+          <div className="bar3"></div>
         </label>
       </button>
-      <div class="collapsible-body">
-        <ul class="inline">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Sign in</a></li>
-          <li><a href="#">Sign up</a></li>
+      <div className="collapsible-body">
+        <ul className="inline">
+          <li><Link to='/about'>About</Link></li>
+          <li><a href="/signin">Sign in</a></li>
+          <li><a href="/signup">Sign up</a></li>
         </ul>
       </div>
     </div>
