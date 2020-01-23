@@ -1,6 +1,17 @@
 nav {
     z-index: 1;
 }
+.nav-brand {
+    display: flex;
+}
+
+#iconLink {
+    border: none;
+}
+#icon {
+    max-height: 40px;
+    margin-right: 8px;
+}
 .modal {
     z-index: 2;
 }

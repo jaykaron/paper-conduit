@@ -29,7 +29,12 @@ const Nav = () => {
   return (
     <nav className="border split-nav">
       <div className="nav-brand">
-        <h4><Link to='/'>Paper Conduit</Link></h4>
+        <Link to='/' id='iconLink'>
+          <img src="favicon.ico" id='icon' />
+        </Link>
+        <h4><Link to='/'>
+          Paper Conduit
+        </Link></h4>
       </div>
       <div className="collapsible">
         <input id="collapsible1" type="checkbox" name="collapsible1"></input>
