@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import { QueryContext } from './QueryContext'
-import { UserContext } from './UserContext'
+import { QueryContext } from '../QueryContext'
+import { UserContext } from '../UserContext'
 
 
 const FeedButton = () => {

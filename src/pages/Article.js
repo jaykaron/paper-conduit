@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../components/UserContext'
-import UserLink from '../components/UserLink'
-import FavoriteButton from '../components/FavoriteButton'
+import UserButton from '../components/buttons/UserButton'
+import FavoriteButton from '../components/buttons/FavoriteButton'
 
 
 const Article = (props) => {
@@ -40,7 +40,7 @@ const Article = (props) => {
       <div className="article-card-buttons">
         <button>5 Comments</button>
         <FavoriteButton article={article} />
-        <UserLink user={article.author} />
+        <UserButton user={article.author} />
       </div>
     </article>
   )

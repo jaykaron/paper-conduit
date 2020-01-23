@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const UserLink = props => {
+const UserButton = props => {
   return (
     <Link to={`/user/${props.user.username}`} className='paper-btn user-link'>
       <img className='small-avatar' src={props.user.image} alt='user avatar'></img>
@@ -10,4 +10,4 @@ const UserLink = props => {
   )
 }
 
-export default UserLink
+export default UserButton

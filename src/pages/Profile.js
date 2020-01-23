@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import ArticleList from '../components/ArticleList'
 import { QueryProvider } from '../components/QueryContext'
 import { UserContext } from '../components/UserContext'
-import FollowButton from '../components/FollowButton'
+import FollowButton from '../components/buttons/FollowButton'
 
 const Profile = (props) => {
   const fetchApi = useContext(UserContext)[2]

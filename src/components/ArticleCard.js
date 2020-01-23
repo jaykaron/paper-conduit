@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import UserLink from './UserLink';
-import FavoriteButton from './FavoriteButton';
+import UserButton from './buttons/UserButton';
+import FavoriteButton from './buttons/FavoriteButton';
 
 const ArticleCard = props => {
   const art = props.article;
@@ -22,7 +22,7 @@ const ArticleCard = props => {
             Read me!
           </Link>
           <FavoriteButton article={art} />
-          <UserLink user={art.author}></UserLink>
+          <UserButton user={art.author}></UserButton>
         </div>
       </div>
     </div>

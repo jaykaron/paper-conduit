@@ -3,7 +3,7 @@ import Splash from '../components/Splash'
 import ArticleList from '../components/ArticleList'
 import TagModal from '../components/TagModal'
 import { QueryProvider } from '../components/QueryContext'
-import FeedButton from '../components/FeedButton'
+import FeedButton from '../components/buttons/FeedButton'
 
 const Home = (props) => {
 
