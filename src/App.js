@@ -21,6 +21,7 @@ function App() {
             <Route path='/article/:slug' component={Article} />
             <Route path='/user/:user' component={Profile} />
             <Route path='/signin' exact component={Login} />
+            <Route path='/signup' exact component={Login} />
           </Switch>
         </UserProvider>
       </div>

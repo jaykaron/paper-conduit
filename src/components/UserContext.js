@@ -19,7 +19,6 @@ export const UserProvider = (props) => {
 
     if (!response.ok) {
       console.error(response)
-      return
     }
 
     const data = await response.json()
