@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { fetchApi } from '../utils'
+import { UserContext } from '../components/UserContext'
 import UserLink from '../components/UserLink'
 import FavoriteButton from '../components/FavoriteButton'
 
 
 const Article = (props) => {
 
+  const fetchApi = useContext(UserContext)[2]
   const [article, setArticle] = useState({})
 
   useEffect(() => {
     const slug = props.match.params.slug
-    const url = `https://conduit.productionready.io/api/articles/${slug}`
-    fetchApi(url, d => {
+    fetchApi(`articles/${slug}`, {}, d => {
       setArticle(d.article)
     })
-  }, [props.match.params.slug])
+  }, [props.match.params.slug, fetchApi])
 
   if (article.title === undefined)
     return (
@@ -39,7 +39,7 @@ const Article = (props) => {
       <p className="article-meta"> {tags} </p>
       <div className="article-card-buttons">
         <button>5 Comments</button>
-        <FavoriteButton count={article.favoritesCount} favorited={article.favorited} />
+        <FavoriteButton article={article} />
         <UserLink user={article.author} />
       </div>
     </article>

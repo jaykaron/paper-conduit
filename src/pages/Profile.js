@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import { fetchApi } from '../utils'
+import React, { useEffect, useState, useContext } from 'react'
 import ArticleList from '../components/ArticleList'
 import { QueryProvider } from '../components/QueryContext'
+import { UserContext } from '../components/UserContext'
 
 const Profile = (props) => {
-
+  const fetchApi = useContext(UserContext)[2]
   const [profile, setProfile] = useState({})
 
   useEffect(() => {
     const user = props.match.params.user
-    const url = `https://conduit.productionready.io/api/profiles/${user}`
-    fetchApi(url, d => {
+    fetchApi(`profiles/${user}`, {}, d => {
       setProfile(d.profile)
     })
-  }, [props.match.params.user])
+  }, [props.match.params.user, fetchApi])
 
   if (!profile || profile.username === undefined)
     return (

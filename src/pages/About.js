@@ -1,8 +1,7 @@
 import React from 'react'
 import Splash from '../components/Splash'
 
-const About = () =>
-{
+const About = () => {
   const content = (
     <div>
       <p>
@@ -20,7 +19,9 @@ const About = () =>
 
   return (
     <div>
-      <Splash title='About' content={content}/>
+      <Splash title='About'>
+        {content}
+      </Splash>
     </div>
   )
 }

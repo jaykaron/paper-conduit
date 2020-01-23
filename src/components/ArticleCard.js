@@ -21,7 +21,7 @@ const ArticleCard = props => {
           <Link to={`/article/${art.slug}`} className='paper-btn'>
             Read me!
           </Link>
-          <FavoriteButton count={art.favoritesCount} favorited={art.favorited} />
+          <FavoriteButton article={art} />
           <UserLink user={art.author}></UserLink>
         </div>
       </div>

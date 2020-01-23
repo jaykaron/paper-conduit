@@ -1,18 +1,19 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { fetchApi } from '../utils'
 import { QueryContext } from './QueryContext'
+import { UserContext } from './UserContext'
 
 const TagModal = () => {
+  const fetchApi = useContext(UserContext)[2]
   const [tags, setTags] = useState([])
   const queryContext = useContext(QueryContext)
   const params = queryContext[0]
   const setParams = queryContext[1]
 
   useEffect(() => {
-    fetchApi(`https://conduit.productionready.io/api/tags`, d => {
+    fetchApi(`tags`, {}, d => {
       setTags(d.tags)
     })
-  }, [setTags])
+  }, [setTags, fetchApi])
 
   const closeModal = () => {
     document.getElementById('tag-modal').checked = false

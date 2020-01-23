@@ -14,7 +14,9 @@ const Home = (props) => {
 
   return (
     <div>
-      <Splash title='Paper Conduit' content={content}/>
+      <Splash title='Paper Conduit'>
+        {content}
+      </Splash>
       <QueryProvider>
         <TagModal />
         <ArticleList />

@@ -1,20 +1,22 @@
-import React, { useState, useEffect, createContext } from 'react'
-import { fetchApi } from '../utils'
+import React, { useState, useEffect, createContext, useContext } from 'react'
+import { UserContext } from './UserContext'
 
 export const QueryContext = createContext()
 
 export const QueryProvider = (props) => {
+  const fetchApi = useContext(UserContext)[2]
+
   const [articles, setArticles] = useState([])
   const [articleCount, setCount] = useState(0)
   const [params, setParams] = useState(setDefaults(props.queryParams))
 
   useEffect(() => {
     let query = createQuery(params)
-    fetchApi(`https://conduit.productionready.io/api/articles${query}`, d => {
+    fetchApi(`articles${query}`, {}, d => {
       setArticles(d.articles)
       setCount(d.articlesCount)
     })
-  }, [params])
+  }, [params, fetchApi])
 
   return (
     <QueryContext.Provider value={[params, setParams, articles, articleCount]}>
