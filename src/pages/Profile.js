@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import ArticleList from '../components/ArticleList'
 import { QueryProvider } from '../components/QueryContext'
 import { UserContext } from '../components/UserContext'
+import FollowButton from '../components/FollowButton'
 
 const Profile = (props) => {
   const fetchApi = useContext(UserContext)[2]
@@ -34,6 +35,9 @@ const Profile = (props) => {
         <div className="card-body">
           <h4 className="card-title">{profile.username}</h4>
           <h5 className="card-subtitle">{bio}</h5>
+          <div className="article-card-buttons">
+            <FollowButton profile={profile} />
+          </div>
         </div>
       </div>
       <QueryProvider queryParams={queryParams} >
