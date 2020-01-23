@@ -27,8 +27,8 @@ export const UserProvider = (props) => {
   }
 
 
-
-  if (!user.id && localStorage.getItem('token').length > 16) {
+  const token = localStorage.getItem('token')
+  if (!user.id && token && token.length > 16) {
     fetchApi('user', {}, resp => {
       if (resp.user)
         setUser(resp.user)

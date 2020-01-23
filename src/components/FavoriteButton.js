@@ -3,7 +3,10 @@ import { UserContext } from './UserContext'
 
 
 const FavoriteButton = (props) => {
-  const fetchApi = useContext(UserContext)[2]
+  const userCon = useContext(UserContext)
+  const user = userCon[0]
+  const fetchApi = userCon[2]
+
   const art = props.article
 
   const [favorite, setFavorite] = useState(art.favorited)
@@ -23,9 +26,9 @@ const FavoriteButton = (props) => {
 
   return (
     <button className={favorite ? 'btn-primary' : ''}
-      onClick={toggle}>
+      onClick={toggle} disabled={user.id ? false : true}>
       ♥ ({count})
-  </button>
+  </button >
   )
 }
 

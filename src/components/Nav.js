@@ -4,7 +4,9 @@ import { UserContext } from '../components/UserContext'
 
 
 const Nav = () => {
-  const user = useContext(UserContext)[0]
+  const userCon = useContext(UserContext)
+  const user = userCon[0]
+  const setUser = userCon[1]
 
   const loggedOut = (
     <span>
@@ -12,8 +14,16 @@ const Nav = () => {
       <li><Link to='/signup'>Sign up</Link></li>
     </span>
   )
+
+  const logout = () => {
+    setUser({})
+    localStorage.removeItem('token')
+  }
   const loggedIn = (
-    <li><Link to='/profile'>{user.username}</Link></li>
+    <span>
+      <li><Link to='/profile'>{user.username}</Link></li>
+      <li><Link to='/' onClick={logout}>Logout</Link></li>
+    </span>
   )
 
   return (
