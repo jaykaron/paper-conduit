@@ -3,6 +3,7 @@ import Splash from '../components/Splash'
 import ArticleList from '../components/ArticleList'
 import TagModal from '../components/TagModal'
 import { QueryProvider } from '../components/QueryContext'
+import FeedButton from '../components/FeedButton'
 
 const Home = (props) => {
 
@@ -18,7 +19,10 @@ const Home = (props) => {
         {content}
       </Splash>
       <QueryProvider>
-        <TagModal />
+        <div className="article-card-buttons">
+          <FeedButton />
+          <TagModal />
+        </div>
         <ArticleList />
       </QueryProvider>
     </div>

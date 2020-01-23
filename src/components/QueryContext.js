@@ -11,7 +11,7 @@ export const QueryProvider = (props) => {
   const [params, setParams] = useState(setDefaults(props.queryParams))
 
   useEffect(() => {
-    let query = createQuery(params)
+    let query = createQuery(setDefaults(params))
     fetchApi(`articles${query}`, {}, d => {
       setArticles(d.articles)
       setCount(d.articlesCount)
@@ -32,9 +32,15 @@ const setDefaults = param => {
   p.author = p.author ? p.author : ''
   p.tag = p.tag ? p.tag : ''
   p.favorited = p.favorited ? p.favorited : ''
+  p.feed = p.feed ? true : false
   return p
 }
 
 const createQuery = (params) => {
-  return '?' + Object.entries(params).map(e => e.join('=')).join('&')
+  const filter = '?' + Object.entries(params).map(e => e.join('=')).join('&')
+
+  if (params.feed)
+    return `/feed${filter}`
+
+  return filter
 }

@@ -28,9 +28,11 @@ const TagModal = () => {
   return (
     <div>
       <div className="row flex-spaces child-borders">
-        <label className="paper-btn margin" htmlFor="tag-modal">{buttonText}</label>
+        <label className="paper-btn margin" htmlFor="tag-modal" disabled={params.feed}>
+          {buttonText}
+        </label>
       </div>
-      <input className="modal-state" id="tag-modal" type="checkbox" />
+      <input className="modal-state" id="tag-modal" type="checkbox" disabled={params.feed} />
       <div className="modal">
         <label className="modal-bg" htmlFor="tag-modal"></label>
         <div className="modal-body">

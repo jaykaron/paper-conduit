@@ -56,7 +56,9 @@ const ArticleList = (props) => {
  */
 const countMessage = (offset, count, total) => {
   let message = ''
-  if (count <= 1)
+  if (count === 0)
+    message = 'No articles to show'
+  else if (count === 1)
     message = `Showing article ${offset + 1} of ${total}`
   else
     message = `Showing articles ${offset + 1} to ${offset + 1 + count - 1} of ${total}`

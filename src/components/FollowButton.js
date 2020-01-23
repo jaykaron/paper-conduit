@@ -11,7 +11,7 @@ const FollowButton = (props) => {
 
   const [following, setFollowing] = useState(profile.following)
 
-  const toggle = (e) => {
+  const toggle = () => {
     fetchApi(`profiles/${profile.username}/follow`, {
       method: following ? 'DELETE' : 'POST',
     }, resp => {
