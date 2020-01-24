@@ -30,6 +30,7 @@ const Settings = () => {
       console.error(resp)
     }
   }
+
   const submit = () => {
     const fields = ['email', 'username', 'password', 'image', 'bio']
 
@@ -50,7 +51,6 @@ const Settings = () => {
       },
       body: JSON.stringify(body)
     }, handleResponse)
-
   }
 
   const success = (

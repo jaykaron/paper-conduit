@@ -10,6 +10,7 @@ import Login from './pages/Login'
 import { UserProvider } from './components/UserContext'
 import Profile from './pages/Profile'
 import Settings from './pages/Settings'
+import Editor from './pages/Editor'
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
             <Route path='/user/:user' exact component={User} />
             <Route path='/signin' exact component={Login} />
             <Route path='/signup' exact component={Login} />
+            <Route path='/editor' exact component={Editor} />
+            <Route path='/editor/:slug' exact component={Editor} />
           </Switch>
         </UserProvider>
       </div>

@@ -8,6 +8,7 @@ import CommentCard from '../components/CommentCard'
 
 const Article = (props) => {
 
+  const clientUser = useContext(UserContext)[0]
   const fetchApi = useContext(UserContext)[2]
   const [article, setArticle] = useState({})
   const [comments, setComments] = useState([])
@@ -30,17 +31,26 @@ const Article = (props) => {
       <div></div>
     )
 
-  const user = article.author.username
+  const username = article.author.username
 
   let tags;
   if (article.tagList.length > 0)
     tags = article.tagList.reduce((acc, cur) => `${acc} #${cur}`, '')
 
+  const editButton = (
+    <Link to={`/editor/${article.slug}`} className='paper-btn' style={{ float: 'right' }}>
+      ✎ Edit
+    </Link >
+  )
   return (
     <article className="article">
+      {clientUser.username === username ? editButton : null}
       <h1 className="article-title">{article.title}</h1>
+      <p className="text-lead">
+        {article.description}
+      </p>
       <p className="article-meta">
-        Written by <Link to={`/user/${user}`}>{user} </Link>
+        Written by <Link to={`/user/${username}`}>{username} </Link>
         on {new Date(article.createdAt).toLocaleDateString()}
       </p>
       <p>{article.body}</p>
