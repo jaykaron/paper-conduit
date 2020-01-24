@@ -7,7 +7,7 @@ import FeedButton from '../components/buttons/FeedButton'
 const Home = () => (
   <div>
     <QueryProvider>
-      <div className="article-card-buttons">
+      <div className="squished-buttons">
         <FeedButton />
         <TagModal />
       </div>

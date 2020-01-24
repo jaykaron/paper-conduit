@@ -45,7 +45,7 @@ const Article = (props) => {
       </p>
       <p>{article.body}</p>
       <p className="article-meta"> {tags} </p>
-      <div className="article-card-buttons margin-bottom-large">
+      <div className="squished-buttons margin-bottom-large">
         <FavoriteButton article={article} />
         <UserButton user={article.author} />
       </div>

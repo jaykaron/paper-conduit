@@ -41,7 +41,7 @@ const TagModal = () => {
           <h5 className="modal-text">Click on a tag to filter the posts.</h5>
           {
             tags.map(t => (
-              <button key={t} className='btn-small tag-btn' onClick={() => {
+              <button key={t} className='btn-small margin-small' onClick={() => {
                 updateTag(t)
                 closeModal()
               }}>
@@ -49,7 +49,7 @@ const TagModal = () => {
               </button>
             ))
           }
-          <button className='btn-small tag-btn btn-primary' onClick={() => {
+          <button className='btn-small btn-primary margin-small' onClick={() => {
             updateTag('')
             closeModal()
           }}>

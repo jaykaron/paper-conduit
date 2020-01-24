@@ -17,7 +17,7 @@ const ArticleCard = props => {
         <h6 className='card-text'>{new Date(art.createdAt).toLocaleDateString()}</h6>
         <p className='card-text'>{art.description}</p>
         <p className='card-text'><small>{tagsText}</small></p>
-        <div className='article-card-buttons'>
+        <div className='row flex-spaces'>
           <Link to={`/article/${art.slug}`} className='paper-btn'>
             Read me!
           </Link>

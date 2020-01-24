@@ -14,7 +14,7 @@ const ArticleList = (props) => {
     if (params.offset + articles.length < articleCount)
       next = (<button onClick={incOffset}>Older</button>)
     return (
-      <div className='article-card-buttons'>
+      <div className='squished-buttons'>
         {prev}
         {next}
       </div>

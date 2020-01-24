@@ -35,7 +35,7 @@ const Profile = (props) => {
         <div className="card-body">
           <h4 className="card-title">{profile.username}</h4>
           <h5 className="card-subtitle">{bio}</h5>
-          <div className="article-card-buttons">
+          <div className="row flex-center">
             <FollowButton profile={profile} />
           </div>
         </div>

@@ -26,12 +26,12 @@ const CommentButton = (props) => {
 
 
   return (
-    <div className="row article-card-buttons">
-      <button className='col-3'
+    <div className="row flex-edges">
+      {user.id ? (<textarea id='comment-in' className="form-group col sm-8" placeholder="My cordial thoughts..."></textarea>) : null}
+      <button className='col sm-3'
         onClick={postComment} disabled={user.id ? false : true}>
         Comment
       </button >
-      {user.id ? (<textarea id='comment-in' className="form-group col-8" placeholder="My cordial thoughts..."></textarea>) : null}
     </div>
   )
 }
