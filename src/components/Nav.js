@@ -30,7 +30,7 @@ const Nav = () => {
     <nav className="border split-nav">
       <div className="nav-brand">
         <Link to='/' id='iconLink'>
-          <img src="favicon.ico" id='icon' alt='logo' />
+          <img src="/logo.png" id='icon' alt='logo' />
         </Link>
         <h4><Link to='/'>
           Paper Conduit

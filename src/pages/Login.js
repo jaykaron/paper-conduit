@@ -61,7 +61,7 @@ const Login = props => {
         {signup ? 'Error registering' : 'Error logging in'}
       </p>
       <ul>
-        {errorMessages.map((m, i) => (<li key={i}>{m}</li>))}
+        {errorMessages.map(m => (<li key={m}>{m}</li>))}
       </ul>
     </div>
   )

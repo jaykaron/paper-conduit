@@ -21,8 +21,12 @@ export const UserProvider = (props) => {
       console.error(response)
     }
 
-    const data = await response.json()
-    callback(data)
+    response.json()
+      .then(callback)
+      .catch(e => {
+        console.error(e)
+        callback({})
+      })
   }
 
 

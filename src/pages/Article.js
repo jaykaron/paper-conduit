@@ -3,19 +3,27 @@ import { Link } from 'react-router-dom'
 import { UserContext } from '../components/UserContext'
 import UserButton from '../components/buttons/UserButton'
 import FavoriteButton from '../components/buttons/FavoriteButton'
+import CommentCard from '../components/CommentCard'
 
 
 const Article = (props) => {
 
   const fetchApi = useContext(UserContext)[2]
   const [article, setArticle] = useState({})
+  const [comments, setComments] = useState([])
 
   useEffect(() => {
     const slug = props.match.params.slug
     fetchApi(`articles/${slug}`, {}, d => {
-      setArticle(d.article)
+      if (d.article)
+        setArticle(d.article)
+    })
+    fetchApi(`articles/${slug}/comments`, {}, d => {
+      if (d.comments)
+        setComments(d.comments)
     })
   }, [props.match.params.slug, fetchApi])
+
 
   if (article.title === undefined)
     return (
@@ -37,11 +45,11 @@ const Article = (props) => {
       </p>
       <p>{article.body}</p>
       <p className="article-meta"> {tags} </p>
-      <div className="article-card-buttons">
-        <button>5 Comments</button>
+      <div className="article-card-buttons margin-bottom-large">
         <FavoriteButton article={article} />
         <UserButton user={article.author} />
       </div>
+      <CommentCard comments={comments} article={article} />
     </article>
   )
 }
