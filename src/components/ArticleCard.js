@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import UserButton from './buttons/UserButton';
-import FavoriteButton from './buttons/FavoriteButton';
+import UserButton from './buttons/UserButton'
+import FavoriteButton from './buttons/FavoriteButton'
 
 const ArticleCard = props => {
-  const art = props.article;
+  const art = props.article
 
-  let tagsText;
+  let tagsText
   if (art.tagList.length > 0)
     tagsText = art.tagList.reduce((acc, cur) => `${acc} #${cur}`, '')
 

@@ -7,10 +7,10 @@ const ArticleList = (props) => {
   const [params, setParams, articles, articleCount] = useContext(QueryContext)
 
   const navButtons = () => {
-    let prev;
+    let prev
     if (params.offset > 0)
       prev = (<button onClick={decOffset}>Newer</button>)
-    let next;
+    let next
     if (params.offset + articles.length < articleCount)
       next = (<button onClick={incOffset}>Older</button>)
     return (

@@ -4,8 +4,10 @@ import { QueryProvider } from '../components/QueryContext'
 import { UserContext } from '../components/UserContext'
 import FollowButton from '../components/buttons/FollowButton'
 import { DEFAULT_AVATAR } from '../utils'
+import { Redirect } from 'react-router-dom'
 
 const User = (props) => {
+  const user = useContext(UserContext)[0]
   const fetchApi = useContext(UserContext)[2]
   const [profile, setProfile] = useState({})
 
@@ -19,6 +21,11 @@ const User = (props) => {
   if (!profile || profile.username === undefined)
     return (
       <div></div>
+    )
+
+  if (profile.username === user.username)
+    return (
+      <Redirect to='/profile' />
     )
 
   const bio = profile.bio ? profile.bio : `${profile.username} wishes to remain mysterious.`

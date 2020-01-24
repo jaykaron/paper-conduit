@@ -8,7 +8,7 @@ export const UserProvider = (props) => {
   const [user, setUser] = useState({})
 
   const fetchApi = async (endpoint, options, callback) => {
-    let token = user.token || localStorage.getItem('token');
+    let token = user.token || localStorage.getItem('token')
     if (token) {
       if (!options.headers)
         options.headers = {}

@@ -8,6 +8,8 @@ import User from './pages/User'
 import './css/main.css'
 import Login from './pages/Login'
 import { UserProvider } from './components/UserContext'
+import Profile from './pages/Profile'
+import Settings from './pages/Settings'
 
 function App() {
   return (
@@ -18,8 +20,10 @@ function App() {
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/about' exact component={About} />
-            <Route path='/article/:slug' component={Article} />
-            <Route path='/user/:user' component={User} />
+            <Route path='/profile' exact component={Profile} />
+            <Route path='/profile/settings' exact component={Settings} />
+            <Route path='/article/:slug' exact component={Article} />
+            <Route path='/user/:user' exact component={User} />
             <Route path='/signin' exact component={Login} />
             <Route path='/signup' exact component={Login} />
           </Switch>
