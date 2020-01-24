@@ -33,7 +33,7 @@ const TagModal = () => {
         </label>
       </div>
       <input className="modal-state" id="tag-modal" type="checkbox" disabled={params.feed} />
-      <div className="modal">
+      <div className="modal" style={{ zIndex: 2 }}>
         <label className="modal-bg" htmlFor="tag-modal"></label>
         <div className="modal-body">
           <label className="btn-close" htmlFor="tag-modal">X</label>

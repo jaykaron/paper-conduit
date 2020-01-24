@@ -3,8 +3,9 @@ import ArticleList from '../components/ArticleList'
 import { QueryProvider } from '../components/QueryContext'
 import { UserContext } from '../components/UserContext'
 import FollowButton from '../components/buttons/FollowButton'
+import { DEFAULT_AVATAR } from '../utils'
 
-const Profile = (props) => {
+const User = (props) => {
   const fetchApi = useContext(UserContext)[2]
   const [profile, setProfile] = useState({})
 
@@ -30,8 +31,8 @@ const Profile = (props) => {
 
   return (
     <div>
-      <div id='user' className="card" >
-        <img src={profile.image} className='avatar' alt='User Avatar' />
+      <div className="card" style={{ maxWidth: '20rem' }} >
+        <img src={profile.image || DEFAULT_AVATAR} className='avatar' alt='User Avatar' />
         <div className="card-body">
           <h4 className="card-title">{profile.username}</h4>
           <h5 className="card-subtitle">{bio}</h5>
@@ -47,4 +48,4 @@ const Profile = (props) => {
   )
 }
 
-export default Profile
+export default User

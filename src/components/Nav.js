@@ -26,11 +26,16 @@ const Nav = () => {
     </span>
   )
 
+  const logoStyle = {
+    maxHeight: '40px',
+    marginRight: '8px'
+  }
+
   return (
-    <nav className="border split-nav">
-      <div className="nav-brand">
-        <Link to='/' id='iconLink'>
-          <img src="/logo.png" id='icon' alt='logo' />
+    <nav className="border split-nav" style={{ zIndex: 1 }}>
+      <div className="nav-brand" style={{ display: 'flex' }}>
+        <Link to='/' style={{ border: 'none' }}>
+          <img src="/logo.png" style={logoStyle} alt='logo' />
         </Link>
         <h4><Link to='/'>
           Paper Conduit

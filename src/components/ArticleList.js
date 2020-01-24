@@ -33,16 +33,21 @@ const ArticleList = (props) => {
     setParams(newParams)
   }
 
+  const messageStyle = {
+    textAlign: 'center',
+    margin: '0px'
+  }
+
   return (
     <div>
-      <h6 className='article-count'>
+      <h6 style={messageStyle}>
         {countMessage(params.offset, articles.length, articleCount)}
       </h6>
       {
         articles.map(a => (<ArticleCard article={a} key={a.slug} />))
       }
       {navButtons(params.offset, articles.length, articleCount)}
-    </div>
+    </div >
   )
 }
 
