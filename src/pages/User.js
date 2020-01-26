@@ -32,7 +32,7 @@ const User = (props) => {
 
   const queryParams = {
     author: profile.username,
-    limit: 5,
+    limit: 10,
     offset: 0
   }
 

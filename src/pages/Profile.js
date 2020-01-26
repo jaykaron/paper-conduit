@@ -18,7 +18,7 @@ const Profile = () => {
 
   const queryParams = {
     author: user.username,
-    limit: 5,
+    limit: 10,
     offset: 0
   }
 
