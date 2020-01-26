@@ -50,7 +50,7 @@ const ArticleList = (props) => {
               return null
             if (i >= currentPage - SHOW_AROUND && i <= currentPage + SHOW_AROUND)
               return (
-                <button className={`margin-small btn-small ${i === currentPage ? 'btn-primary' : ''}`}
+                <button key={i} className={`margin-small btn-small ${i === currentPage ? 'btn-primary' : ''}`}
                   onClick={() => setOffset((i - 1) * 10)}>
                   {i}
                 </button>
@@ -93,11 +93,10 @@ const ArticleList = (props) => {
     margin: '0px'
   }
 
+  const message = countMessage(params.offset, articles.length, articleCount)
   return (
     <div>
-      <h6 style={messageStyle}>
-        {countMessage(params.offset, articles.length, articleCount)}
-      </h6>
+      <h6 style={messageStyle}> {message} </h6>
       {
         articles.map(a => (<ArticleCard article={a} key={a.slug} />))
       }
@@ -110,10 +109,10 @@ const ArticleList = (props) => {
  * Returns the appropiate message.
  * Either `Showing articles x to y of z`
  * or `Showing article x of z`
- * @param {*} offset 
- * @param {*} count 
- * @param {*} total 
- */
+* @param {*} offset
+* @param {*} count
+* @param {*} total
+  */
 const countMessage = (offset, count, total) => {
   let message = ''
   if (count === 0)

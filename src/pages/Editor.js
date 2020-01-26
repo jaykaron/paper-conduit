@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import Splash from "../components/Splash"
 import { UserContext } from '../components/UserContext'
 
+
 const Editor = props => {
   const user = useContext(UserContext)[0]
   const fetchApi = useContext(UserContext)[2]
@@ -98,6 +99,36 @@ const Editor = props => {
     width: '100%',
     minHeight: '10rem'
   }
+
+  const deleteArticle = () => {
+    fetchApi(`articles/${slug}`, {
+      method: 'DELETE'
+    }, resp => {
+      props.history.push('/profile')
+    })
+  }
+
+  const deleteModal = (
+    <div style={{ float: 'right' }}>
+      <label className="paper-btn btn-danger margin-top" htmlFor="delete-modal">
+        🆇 Delete
+      </label>
+      <input className="modal-state" id="delete-modal" type="checkbox" />
+      <div className="modal" style={{ zIndex: 2 }}>
+        <label className="modal-bg" htmlFor="delete-modal"></label>
+        <div className="modal-body">
+          <label className="btn-close" htmlFor="delete-modal">X</label>
+          <h4 className="modal-title">Are you sure?</h4>
+          <h5 className="modal-text">Click the button below to delete this article.</h5>
+          <button className='btn-danger' style={{ margin: 'auto', display: 'block' }}
+            onClick={deleteArticle}>
+            🆇 Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+
   const form = (
     <div>
       <div className="form-group">
@@ -113,7 +144,10 @@ const Editor = props => {
         <label htmlFor="tags">Tags</label>
         <input type="text" placeholder="code, monkeys, pi" id="tags" style={{ width: '50%' }} />
       </div>
-      <button className='margin-top' onClick={submit}>{slug ? 'Update' : 'Post'}</button>
+      <div>
+        <button className='margin-top' onClick={submit}>{slug ? 'Update' : 'Post'}</button>
+        {slug ? deleteModal : null}
+      </div>
     </div>
   )
   if (formState === 3)
