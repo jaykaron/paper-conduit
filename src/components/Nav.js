@@ -35,7 +35,7 @@ const Nav = () => {
     <nav className="border split-nav" style={{ zIndex: 1 }}>
       <div className="nav-brand" style={{ display: 'flex' }}>
         <Link to='/' style={{ border: 'none' }}>
-          <img src="/logo.png" style={logoStyle} alt='logo' />
+          <img src="logo.png" style={logoStyle} alt='logo' />
         </Link>
         <h4><Link to='/'>
           Paper Conduit
