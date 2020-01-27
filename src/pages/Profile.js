@@ -31,7 +31,7 @@ const Profile = () => {
           <h5 className="card-subtitle">{bio}</h5>
           <div className='row flex-edges margin-top'>
             <Link to='/editor' className='paper-btn'>
-              Create Article
+              ✎ Create Article
             </Link>
             <Link to='/profile/settings' className='paper-btn'>
               ⚙ Settings
