@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e26d636c2b0c9bbf64c47a6db5ca9199",
+    "revision": "3b48c5656e58da83beed8cb0a3abd83b",
     "url": "/paper-conduit/index.html"
   },
   {
-    "revision": "12ab509f8303004a13f2",
+    "revision": "d20a1d3ea73b7944cc2b",
     "url": "/paper-conduit/static/css/main.8f17c67b.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/paper-conduit/static/js/2.c5abd70f.chunk.js.LICENSE"
   },
   {
-    "revision": "12ab509f8303004a13f2",
-    "url": "/paper-conduit/static/js/main.ca69f01f.chunk.js"
+    "revision": "d20a1d3ea73b7944cc2b",
+    "url": "/paper-conduit/static/js/main.4440ccb3.chunk.js"
   },
   {
     "revision": "dfbc2ac176be47faf8e7",
