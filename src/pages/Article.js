@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
+
 import { UserContext } from '../components/UserContext'
 import UserButton from '../components/buttons/UserButton'
 import FavoriteButton from '../components/buttons/FavoriteButton'
 import CommentCard from '../components/CommentCard'
+import Markdown from 'markdown-to-jsx'
 
 
 const Article = (props) => {
@@ -53,7 +55,9 @@ const Article = (props) => {
         Written by <Link to={`/user/${username}`}>{username} </Link>
         on {new Date(article.createdAt).toLocaleDateString()}
       </p>
-      <p>{article.body}</p>
+      <Markdown>
+        {article.body}
+      </Markdown>
       <p className="article-meta"> {tags} </p>
       <div className="squished-buttons margin-bottom-large">
         <FavoriteButton article={article} />

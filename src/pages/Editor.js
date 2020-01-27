@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Splash from "../components/Splash"
 import { UserContext } from '../components/UserContext'
+import { Link } from 'react-router-dom'
 
 
 const Editor = props => {
@@ -11,7 +12,7 @@ const Editor = props => {
   const [formState, setFormState] = useState(0)
   const [errorMessages, setErrorMessages] = useState([])
 
-  const slug = props.match.params.slug
+  let slug = props.match.params.slug
   useEffect(() => {
     if (slug) {
       fetchApi(`articles/${slug}`, {}, resp => {
@@ -40,6 +41,7 @@ const Editor = props => {
 
   const handleResponse = resp => {
     if (resp.article) {
+      slug = resp.article.slug
       setFormState(1)
     }
     else if (!resp.ok) {
@@ -48,7 +50,6 @@ const Editor = props => {
         k => `${k}: ${errors[k].join(', ')}`
       )
       setErrorMessages(messages)
-
       setFormState(2)
     }
     else {
@@ -80,7 +81,10 @@ const Editor = props => {
   }
 
   const success = (
-    <div className="alert alert-success">Article {slug ? 'updated' : 'submitted'}!</div>
+    <div>
+      <div className="alert alert-success">Article {slug ? 'updated' : 'submitted'}!</div>
+      <Link className='paper-btn' to={`/article/${slug}`}>Read it!</Link>
+    </div>
   )
   const authError = (
     <div className="alert alert-danger margin-top-large">Authorization error. Are you logged in?</div>
