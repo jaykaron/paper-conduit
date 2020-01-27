@@ -14,6 +14,10 @@ const About = () => {
         of looking at their already complete React implementation I decided to
         use an entirely new UI design.
       </p>
+      <p>
+        As the backend being used is open to everyone for development purposes don't
+        expect to find great content.
+      </p>
     </div>
   )
 
