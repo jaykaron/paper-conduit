@@ -18,8 +18,16 @@ export const UserProvider = (props) => {
     const response = await fetch(`${API}/${endpoint}`, options)
 
     if (!response.ok) {
+      if (response.status === 401 && user.token) {
+        localStorage.removeItem('token')
+        setUser({})
+        // try again in case it was an expired token
+        let newRespone = await fetchApi(endpoint, options, callback)
+        return newRespone
+      }
       console.error(response)
     }
+
 
     response.json()
       .then(callback)
@@ -35,6 +43,8 @@ export const UserProvider = (props) => {
     fetchApi('user', {}, resp => {
       if (resp.user)
         setUser(resp.user)
+      else
+        localStorage.removeItem('token')
     })
   }
 
